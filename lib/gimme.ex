@@ -47,7 +47,7 @@ defmodule Gimme do
     loop(url, regex_true, regex_false, download_folder, scan_time)
   end
 
-  def main(args) do
+  def run() do
     %{"url" => url,
       "regex_true" => regex_true,
       "regex_false" => regex_false,
