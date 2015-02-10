@@ -15,9 +15,11 @@ defmodule Gimme do
 
           case HTTPoison.get(link) do
             {:ok, %HTTPoison.Response{body: file_data, headers: headers, status_code: 200}} ->
-              filename = headers["Content-Disposition"]
-              |> String.split("\"")
-              |> Enum.at(1)
+
+              filename = case Regex.run(~r/filename="(.*)"/, headers["Content-Disposition"]) do
+                [_full_match, match] -> match
+                _ -> :base64.encode(:crypto.strong_rand_bytes(16))
+              end
 
               download_path = download_folder <> filename
 
