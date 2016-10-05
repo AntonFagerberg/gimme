@@ -26,9 +26,9 @@ defmodule Gimme.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:poison, "~> 1.3"},
-      {:quinn, "~> 0.0.3"},
-      {:httpoison, "~> 0.6"}
+      {:poison, "~> 3.0"},
+      {:quinn, "~> 1.0"},
+      {:httpoison, "~> 0.9"}
     ]
   end
 end
